@@ -16,6 +16,9 @@
 
 	<!--Manage Content-->
 	<script src="<?php echo base_url();?>assests/jscode/commentview.js" ></script>
+
+	<!--login face book-->
+	<script src="<?php echo base_url();?>assests/jscode/loginfacebook.js" ></script>
 </head>
 <body>
 	<div class="container">
@@ -64,12 +67,22 @@
 
 					<div class="boxfooter">
 						<div class="loninbox">
-							ทำการเข้าสู่ระบบเพื่อเเสดงความเห็น
+							<span id="status" ></span>
+							<span id="firstname"></span>
+							<span id="lastname"></span>
+							<div id="loginbutton" style="display:inline" >
+								<fb:login-button  scope="public_profile,email" onlogin="checkLoginState();">
+								</fb:login-button >
+							</div>
+							<button id="logoutbutton" onclick="logout()" hidden>Logout</button>
+
 						</div> <!--เข้าสู่ระบบ-->
+					
 						<br>
+						
 						<div class="kwamkidbox">
 							<form>
-								<textarea > 
+								<textarea disabled >
 
 								</textarea>
 								<input type="submit" value="send" class="btn btn-success">
