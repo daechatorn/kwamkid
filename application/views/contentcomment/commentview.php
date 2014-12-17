@@ -21,16 +21,23 @@
 	<script src="<?php echo base_url();?>assests/jscode/loginfacebook.js" ></script>
 </head>
 <body>
+	
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12" id="boxbackgroundcontent">
+			<div class="col-md-12" id="boxbackgroundcontent" style="background:url('<?=base_url()?>assests/images/pongsakorn.jpg') no-repeat ;width:100%;">
 
 
 				<div class="col-md-offset-7 col-md-5" id="boxcontent" >
 					<div class="boxheader">
 						<h3>อะไรคืออุปสรรคสำคัญต่อคุณภาพการเรียนการสอนด้านวิทยาศาสตร์และเทคโนโลยี และเราจะปฏิรูปได้อย่างไร</h3>
 						<div class="headercontent">
-							<span id="content1">นายพงศกร จงชีวีวัฒน์ นักศึกษาชั้นปีที่ 4 ภาควิชาวิศวกรรมเคมี คณะวิศวกรรมศาสตร์ มองว่าปัญหาและอุปสรรคที่เป็นปัญหาต่อคุณภาพการเรียนการสอนด้านวิทยา
+							<span id="content1">
+								<b>นายพงศกร จงชีวีวัฒน์ นักศึกษาชั้นปีที่ 4 
+								ภาควิชาวิศวกรรมเคมี คณะวิศวกรรมศาสตร์ 
+								เลขานุการองค์การนักศึกษา 
+								มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
+								</b> 
+							มองว่าปัญหาและอุปสรรคที่เป็นปัญหาต่อคุณภาพการเรียนการสอนด้านวิทยา
 ศาสตร์และเทคโนโลยี แบ่งเป็น 4 ระดับ คือ 1) ระดับตัวเอง 
 จะมองในมุมของคุณภาพการเรียนรู้ 2) ระดับผู้สอน 
 คุณภาพการถ่ายทอดของอาจารย์ 3) ระดับครอบครัว สังคม 

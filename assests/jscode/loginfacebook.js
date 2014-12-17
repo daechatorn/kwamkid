@@ -80,7 +80,7 @@
 		     
 		     FB.api('/me', function(response) {
 		       document.getElementById('status').innerHTML =
-	        	'เเสดงความคิดเห็นโดย: ';
+	        	'ร่วมเเสดงความคิดเห็นโดย: ';
 	        	$("#firstname").html(response.first_name+" ");
 	        	$("#lastname").html(response.last_name);
 	        	$(".kwamkidbox form textarea").prop('disabled', false);
