@@ -3,3 +3,73 @@ body{
 	padding: 0;
 	background: black;
 }
+#boxbackgroundcontent{
+	background: white;
+
+}
+
+#boxcontent{
+
+	background:rgba(255,155,0,0.7);
+	
+	
+}
+
+.boxheader{
+
+
+
+}
+.boxheader h3{
+	padding:5% 5% 1% 5%;
+	color:white;
+	text-align: center;
+	font-family: "Super market", Times, serif;
+
+}
+
+.boxheader .headercontent{
+	padding:0% 2% 2% 2%;
+
+}
+
+
+.boxheader .headercontent span{
+	padding-left: 10%;
+	color:white;
+	size:14px;
+	text-align: left;
+	font-family: "Super market", Times, serif;
+
+}
+
+.boxheader .headercontent button{
+	margin: 0 auto;
+
+}
+
+
+.boxarticle{
+	
+}
+.boxarticle .articlecontent{
+	padding:0% 2% 2% 2%;
+
+}
+
+
+.boxarticle .articlecontent #test{
+	padding-left: 10%;
+	color:white;
+	size:14px;
+	text-align: left;
+	font-family: "Super market", Times, serif;
+
+}
+
+
+
+.boxfooter{
+	
+
+}
