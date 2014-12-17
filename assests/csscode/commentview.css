@@ -4,10 +4,10 @@ body{
 	background: black;
 }
 
-
+/*box color*/
 #boxcontent{
 
-	background:rgba(255,155,0,0.7);
+	
 	
 	
 }
@@ -40,9 +40,10 @@ body{
 
 }
 
+/*box color too*/
 .boxheader .headercontent button{
 	margin-left:39%;
-	background:rgba(255,155,0,0.7);
+	
 	border-color: white;
 	border-width: 3px;
 }
@@ -81,7 +82,7 @@ body{
 	width:100%;
 	height:80%;
 	
-	border-color:orange;
+	
 
 }
 

@@ -5,7 +5,9 @@ class contentcomment extends CI_Controller{
 
 	}
 	public function index(){
-		$this->load->view("contentcomment/commentview");
+		$temp = $this->db->select("boxColor")->from("template")->like("tempName","เหลือง")->get()->result_array();
+
+		$this->load->view("contentcomment/commentview",$temp);
 
 	}
 
