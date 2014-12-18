@@ -21,6 +21,8 @@
 		$readcount = 0;
 		$overcount = 0;
 								$(document).ready(function(){
+
+
 									$("#content2").hide();
 
 									$(".read").click(function(){
@@ -43,7 +45,7 @@
 
 									});
 									$(".read").mouseout(function(){
-										$(".read").css("background","rgba(255,102,51,0.7)"); /*boxColor*/
+										$(".read").css("background","<?php foreach($temp as $tempval){echo $tempval->boxColor;};?>"); /*boxColor*/
 										$(".read").css("border-color","white");
 										$(".read").css("color","white");
 									});
@@ -53,16 +55,14 @@
 
 </head>
 <body>
-	<script type="text/javascript">
-		alert("<?php=count($temp) ?>");
-	</script>
+
 	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12" id="boxbackgroundcontent" style="background:url('<?=base_url()?>assests/images/pongsakorn.jpg') no-repeat ;width:100%;">
 
 
-				<div class="col-md-offset-7 col-md-5" id="boxcontent" style="background:rgba(255,102,51,0.7);"> <!--boxColor-->
+				<div class="col-md-offset-7 col-md-5" id="boxcontent" style="background:<?php foreach($temp as $tempval){echo $tempval->boxColor;};?>"> <!--boxColor-->
 					<div class="boxheader">
 						<h3>อะไรคืออุปสรรคสำคัญต่อคุณภาพการเรียนการสอนด้านวิทยาศาสตร์และเทคโนโลยี และเราจะปฏิรูปได้อย่างไร</h3> <!--topic-->
 						<div class="headercontent">
@@ -86,7 +86,7 @@
 ก็จะทำให้นักเรียน นักศึกษาเริ่มมองเห็นเป้าหมายในการเรียนรู้ของตัวเองที่ชัดเจนมากยิ่งขึ้นส่งผลให้การถ่ายทอดความรู้ของอาจารย์ก็จะได้มองไปในแนวทางเป้าหมายเดียวกันกับนักเรียน นักศึกษา การเรียนการสอนจะมีมุมมอง มีการปฏิบัติ มีการนำทฤษฎีมาปรับประยุกต์ใช้ได้มากขึ้น สุดท้ายก็จะส่งผลให้คุณภาพของการเรียนการสอนในภาพรวมของประเทศดียิ่งขึ้นด้วย</span>
 							<!--พาทสองซ่อน: hiddencontent-->
 							<br>
-							<button class="btn btn-danger read" style="background:rgba(255,102,51,0.7);">Read More</button> <!--boxColor-->
+							<button class="btn btn-danger read" style="background:<?php foreach($temp as $tempval){echo $tempval->boxColor;};?>">Read More</button> <!--boxColor-->
 
 							
 						</div> <!--เกริ่นนำเนื้อหา-->
@@ -124,7 +124,7 @@
 						
 						<div class="kwamkidbox">
 							<form><!--boxColor-->
-								<textarea disabled style="border-color:rgba(255,102,51,0.7);">
+								<textarea disabled style="border-color:<?php foreach($temp as $tempval){echo $tempval->boxColor;};?>">
 
 								</textarea>
 								<input type="submit" value="send" class="btn btn-success">
