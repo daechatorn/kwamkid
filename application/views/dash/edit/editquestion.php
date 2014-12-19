@@ -5,8 +5,8 @@
         <div class="col-sm-3 col-md-2 sidebar" style="margin-top:60px;">
           <ul class="nav nav-sidebar">
             <li ><a href="#">Overview</a></li>
-            <li style="background:rgba(255,155,202,0.5)"><a href="#">เพิ่มคำถาม</a></li>
-            <li><a href="#">แก้ไขคำถาม</a></li>
+            <li ><a href="#">เพิ่มคำถาม</a></li>
+            <li style="background:rgba(255,155,202,0.5)"><a href="#">แก้ไขคำถาม</a></li>
             <li><a href="#">#</a></li>
           </ul>
           <ul class="nav nav-sidebar">
@@ -24,25 +24,42 @@
 
 
 
-       <?php echo form_open_multipart("add/addquestion");?>
+       
         <!--content-->
         <div class="col-sm-9 " style="margin-top:30px;">
-          <h1 class="page-header">Add question</h1>
+          <h1 class="page-header">Edit question</h1>
 
+          <div class="col-lg-12" style="margin:0% 0% 2% 0%;padding:0%;">
+		    <div class="input-group">
+		      <input type="text" class="form-control" id="searchbox" name="searchtopic" placeholder="ค้นหาด้วย Topic">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" disabled type="button"><span class="glyphicon glyphicon-search"></span></button>
+		      </span>
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->
+
+		  <div class="col-lg-12" style="margin:0% 0% 2% 0%;padding:0%;">
+		  	<table class="table table-hover" id="searchtable">
+			 	
+			</table>
+		  </div><!-- /.col-lg-6 -->
+
+
+		<?php echo form_open_multipart("add/addquestion");?>
           <!--Content data-->
           <div class="col-sm-12" style="border:solid;border-color:black">
           	<div class="col-sm-2">
-          		Prefix: <select name="prefix" style="width:100%;">
+          		Prefix: <select name="prefix" class="prefix" style="width:100%;">
 							<option value="นาย">นาย</option>
 							<option value="นาง">นาง</option>
 							<option value="นางสาว">นางสาว</option>
 						</select>
           	</div>
           	<div class="col-sm-5">
-          		Firstname: <input type="text" name="firstname" style="width:100%;" placeholder="กรอกข้อมูลชื่อของท่าน"/>
+          		Firstname: <input type="text" name="firstname" class="firstname" style="width:100%;" placeholder="กรอกข้อมูลชื่อของท่าน"/>
           	</div>
           	<div class="col-sm-5">
-          		Lastname: <input type="text" name="lastname" style="width:100%;" placeholder="กรอกข้อมูลนามสกุลของท่าน"/>
+          		Lastname: <input type="text" name="lastname" class="lastname" style="width:100%;" placeholder="กรอกข้อมูลนามสกุลของท่าน"/>
           	</div>
           	<div class="col-sm-12" style="background:black;width:95%;margin:1.5% 2.5% 1.5% 2.5%;"></div> <!--hr-->
           	
@@ -250,10 +267,10 @@
 
 
           	<div class="col-sm-6">
-          		Position: <input type="text" name="position" style="width:100%;" placeholder="กรอกข้อมูลตำแหน่งงานของท่าน" />
+          		Position: <input type="text" name="position" class="position" style="width:100%;" placeholder="กรอกข้อมูลตำแหน่งงานของท่าน" />
           	</div>
           	<div class="col-sm-6" style="margin-bottom:2%">
-          		University: <input type="text" name="university" style="width:100%;" placeholder="กรอกข้อมูลมหาวิทยาลัยของท่าน" />	
+          		University: <input type="text" name="university" class="university" style="width:100%;" placeholder="กรอกข้อมูลมหาวิทยาลัยของท่าน" />	
           	</div>
           </div>
           
@@ -262,25 +279,25 @@
           <div class="col-sm-12" style="border:solid;border-color:black;margin-top:2.5%">
           	<div class="col-sm-12">
           		Topic content:
-          		<textarea name="topic" style="resize: none;width:100%;">
+          		<textarea name="topic" class="topiccontent" style="resize: none;width:100%;">
 
 				</textarea>
           	</div>
           	<div class="col-sm-4">
           		Main content:
-          		<textarea name="maincontent" style="resize: none;width:100%;">
+          		<textarea name="maincontent" class="maincontent" style="resize: none;width:100%;">
 
 				</textarea>
           	</div>
           	<div class="col-sm-4">
           		Hidden content:
-          		<textarea name="hiddencontent" style="resize: none;width:100%;">
+          		<textarea name="hiddencontent" class="hiddencontent" style="resize: none;width:100%;">
 
 				</textarea>
           	</div>
           	<div class="col-sm-4" style="margin-bottom:2%">
           		Conclusion content:
-          		<textarea name="conclusioncontent" style="resize: none;width:100%;">
+          		<textarea name="conclusioncontent" class="conclusioncontent" style="resize: none;width:100%;">
 
 				</textarea>
           	</div>
@@ -289,18 +306,20 @@
           <!--Other data-->
           <div class="col-sm-12" style="border:solid;border-color:black;margin-top:2.5%;">
           	<div class="col-sm-6">
-          		Profile of interviewer: <input type="file" name="profile" size="20" style="width:100%;"/> 
+          		Profile of interviewer: <input type="file" class="profile" name="profile" size="20" style="width:100%;"/> 
           	</div>
           	<div class="col-sm-6">
           		Background of page: <input type="file" name="picture" size="20" style="width:100%;"/>
           	</div>
 
           	<div class="col-sm-6">
-          		Video path: <input type="text" name="videopath" style="width:100%;" placeholder="กรอกลิ้งค์วิดีโอบนยูทูปของท่าน"/>
+          		Video path: <input type="text" name="videopath" class="videopath" style="width:100%;" placeholder="กรอกลิ้งค์วิดีโอบนยูทูปของท่าน"/>
+          		
+          		
           	</div>
           	<div class="col-sm-6" style="margin-bottom:2%">
 
-          		template color: <select name="tempID" style="width:100%;">
+          		template color: <select name="tempID" class="tempID" style="width:100%;">
 									<?php 
 										foreach ($tempval as $val) {
 											echo "<option value='".$val['tempID']."'>";
@@ -316,10 +335,10 @@
           <div class="col-sm-offset-8 col-sm-4" style="margin-top:1.5%;margin-bottom:2.5%;padding:0;">
           		<input type="submit" value="save" class="btn btn-success" style="width:100%;"/>
           </div>
-
+          <?php echo form_close();?>
 
         </div>
-        <?php echo form_close();?>
+        
       </div>
       
     </div>
@@ -330,7 +349,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="<?=base_url();?>assests/bootstrap/js/bootstrap.min.js"></script>
+    
 	    
 
   </body>

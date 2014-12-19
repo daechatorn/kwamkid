@@ -12,7 +12,9 @@
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>   
 
-    
+    <script src="<?=base_url();?>assests/bootstrap/js/bootstrap.min.js"></script>   
+
+    <script src="<?=base_url();?>assests/jscode/searchquestion.js"></script>    
   </head>
 
   <body>
