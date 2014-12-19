@@ -28,7 +28,7 @@ class add extends CI_Controller{
 		$conclusioncontent = $this->input->post("conclusioncontent");
 		$tempID = $this->input->post("tempID");
 
-		//upload images
+		//upload background
 		$config['upload_path']= 'images/';
 		$config['allowed_types'] = "jpg|gif|png";
 		$config['max_size'] = 100000;
@@ -45,8 +45,8 @@ class add extends CI_Controller{
                     $config['source_image'] = $this->upload->upload_path.$this->upload->file_name;
                     
                     $config['maintain_ratio'] = FALSE;
-                    $config['width'] = 1300;
-                    $config['height'] = 1300;
+                    $config['width'] = 1500;
+                    $config['height'] = 1000;
                     $this->load->library('image_lib',$config); 
                     $this->image_lib->resize();
 
@@ -57,12 +57,45 @@ class add extends CI_Controller{
 
 		}
 		else{
-			print_r("Cann't upload".$this->upload->display_errors()."<br>".$config['upload_path']);
+			print_r("Cann't background upload".$this->upload->display_errors()."<br>".$config['upload_path']);
 		}
 
+		//upload background
+		$config2['upload_path']= 'images/profile/';
+		$config2['allowed_types'] = "jpg|gif|png";
+		$config2['max_size'] = 100000;
+		$config2['file_name'] = "profile_".$firstname.$lastname;
+
+		
+		$this->upload->initialize($config2);
+
+		$profilepath = "";		
+		if($this->upload->do_upload("profile")){ //ถ้าไม่มีปัญหา
+
+					$config['image_library'] = 'gd2';
+                    $config['source_image'] = $this->upload->upload_path.$this->upload->file_name;
+                    
+                    $config['maintain_ratio'] = FALSE;
+                    $config['width'] = 400;
+                    $config['height'] = 400;
+                    $this->load->library('image_lib',$config2); 
+                    $this->image_lib->resize();
 
 
-		$this->db->query("INSERT INTO question VALUES (null, '$topic', '$imagepath', '$prefix', '$firstname', '$lastname', '$years', '$department', '$faculty', '$position', '$university', '$maincontent', '$hiddencontent', '$conclusioncontent', 2);");
+			$data = $this->upload->data();
+			
+			$profilepath = $data['file_name'];
+
+		}
+		else{
+			print_r("Cann't profile upload".$this->upload->display_errors()."<br>".$config2['upload_path']);
+		}
+
+		//keep path video
+		$videopath = $this->input->post("videopath");
+
+
+		$this->db->query("INSERT INTO question VALUES (null, '$topic', '$profilepath','$imagepath', '$prefix', '$firstname', '$lastname', '$years', '$department', '$faculty', '$position', '$university', '$maincontent', '$hiddencontent', '$conclusioncontent', '$videopath', $tempID);");
 		
 
 		

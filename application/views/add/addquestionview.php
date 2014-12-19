@@ -25,7 +25,8 @@
 				</select><br>
 		Firstname: <input type="text" name="firstname" placeholder="กรอกข้อมูลชื่อของท่าน"/><br>
 		Lastname: <input type="text" name="lastname" placeholder="กรอกข้อมูลนามสกุลของท่าน"/><br>
-		Picture of Interviewer: <input type="file" name="picture" size="20"/> 
+		Profile of interviewer: <input type="file" name="profile" size="20"/> 
+		Background of page: <input type="file" name="picture" size="20"/> 
 		Years: <select id="years">
 					<option value="นักศึกษาชั้นปีที่ 1" selected>นักศึกษาชั้นปีที่ 1</option>
 					<option value="นักศึกษาชั้นปีที่ 2">นักศึกษาชั้นปีที่ 2</option>
@@ -246,6 +247,8 @@
 				</textarea>
 				<br/>
 				
+				Video path: <input type="text" name="videopath" placeholder="กรอกลิ้งค์วิดีโอบนยูทูปของท่าน"/>
+
 				template color: <select name="tempID">
 									<?php 
 										foreach ($temp as $val) {

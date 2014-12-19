@@ -58,7 +58,7 @@
 
 	
 	<div class="container">
-		<div class="row">
+		<div class="row" >
 			<div class="col-md-12" id="boxbackgroundcontent" style="background:url('<?=base_url()?>images/<?php foreach ($contentvalue as $key) {echo $key->imageupload;} ?>') no-repeat ;width:100%;">
 
 
@@ -76,7 +76,7 @@
 										echo $key->department."&nbsp";
 										echo $key->faculty."&nbsp";
 										echo $key->position."&nbsp";
-										echo $key->position."&nbsp";
+										echo $key->university."&nbsp";
 									} ?>
 								</b>  <!--prefix, firstname, lastname, years, department, faculty, position, university-->
 								<?php foreach ($contentvalue as $key) {echo $key->maincontent;} ?>
