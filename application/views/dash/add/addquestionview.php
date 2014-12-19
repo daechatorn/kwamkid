@@ -319,8 +319,9 @@
 
 
         </div>
+        <?php echo form_close();?>
       </div>
-      <?php echo form_close();?>
+      
     </div>
 
 

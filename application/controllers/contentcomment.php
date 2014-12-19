@@ -5,7 +5,7 @@ class contentcomment extends CI_Controller{
 
 	}
 	public function index(){
-		$qID = 56;//$this->input->post("qID");
+		$qID = 61;//$this->input->post("qID");
 		//$data['temp'] = $this->db->select("boxColor")->from("template")->like("tempName","เหลือง")->get()->result();
 		$data['contentvalue'] = $this->db->select("*")->from('question')->join('template','question.tempID = template.tempID')->where('qID',$qID)->get()->result();
 
