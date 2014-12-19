@@ -13,10 +13,252 @@
 <body>
 
 	<?php echo form_open_multipart("add/addquestion");?>
-		<!--
+		
 		Topic: <input type="text" name="topic" placeholder="กรอกข้อมูลหัวข้อของท่าน"/> <br>
-		-->
+		
+		
+
+		Prefix: <select name="prefix">
+					<option value="นาย">นาย</option>
+					<option value="นาง">นาง</option>
+					<option value="นางสาว">นางสาว</option>
+				</select><br>
+		Firstname: <input type="text" name="firstname" placeholder="กรอกข้อมูลชื่อของท่าน"/><br>
+		Lastname: <input type="text" name="lastname" placeholder="กรอกข้อมูลนามสกุลของท่าน"/><br>
 		Picture of Interviewer: <input type="file" name="picture" size="20"/> 
+		Years: <select id="years">
+					<option value="นักศึกษาชั้นปีที่ 1" selected>นักศึกษาชั้นปีที่ 1</option>
+					<option value="นักศึกษาชั้นปีที่ 2">นักศึกษาชั้นปีที่ 2</option>
+					<option value="นักศึกษาชั้นปีที่ 3">นักศึกษาชั้นปีที่ 3</option>
+					<option value="นักศึกษาชั้นปีที่ 4">นักศึกษาชั้นปีที่ 4</option>
+					<option value="นักศึกษาชั้นปีที่ 5">นักศึกษาชั้นปีที่ 5</option>
+					<option value="อื่นๆ">อื่นๆ</option>
+				</select>
+				<input type="text" name="years" id="yearsbox" style="display:none" placeholder="กรอกข้อมูลชั้นปีของท่าน">
+				<br>
+				<script>
+					$(document).ready(function(){
+						$("#yearsbox").val($("#years").val());
+
+						$("#years").change(function(){
+							$("#yearsbox").val($("#years").val());
+
+							if($("#years").val()=="อื่นๆ"){
+								$("#yearsbox").val("");
+								$("#yearsbox").css("display","inline");
+							}else{
+								$("#yearsbox").css("display","none");
+							}
+						});
+					});
+				</script>
+		Faculty: <select id="faculty">
+					<option value="คณะวิศวกรรมศาสตร์">คณะวิศวกรรมศาสตร์</option>
+					<option value="คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี">คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี</option>
+					<option value="คณะพลังงานสิ่งแวดล้อมและวัสด">คณะพลังงานสิ่งแวดล้อมและวัสด</option>
+					<option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>
+					<option value="คณะศิลปศาสตร์">คณะศิลปศาสตร์</option>
+					<option value="คณะเทคโนโลยีสารสนเทศ">คณะเทคโนโลยีสารสนเทศ</option>
+					<option value="คณะทรัพยากรชีวภาพและเทคโนโลยี">คณะทรัพยากรชีวภาพและเทคโนโลยี</option>
+					<option value="คณะสถาปัตยกรรมศาสตร์และการออกแบบ">คณะสถาปัตยกรรมศาสตร์และการออกแบบ</option>
+					<option value="บัณฑิตวิทยาลัยการจัดการและนวัตกรรม">บัณฑิตวิทยาลัยการจัดการและนวัตกรรม</option>
+					<option value="สถาบันวิทยาการหุ่นยนต์ภาคสนาม (FIBO)">สถาบันวิทยาการหุ่นยนต์ภาคสนาม (FIBO)</option>
+					<option value="อื่นๆ">อื่นๆ</option>
+				</select>
+				<input type="text" name="faculty" id="facultybox" style="display:none" placeholder="กรอกข้อมูลคณะของท่าน">
+				<br>
+
+
+				Department: <select id="dept" disabled>
+					
+				</select>
+				<input type="text" name="dept" id="deptbox" style="display:none" placeholder="กรอกข้อมูลภาควิชาของท่าน">
+
+				<script>
+					$(document).ready(function(){
+						$("#facultybox").val($("#faculty").val());
+
+						$deptval = "";
+						if($("#facultybox").val()=="คณะวิศวกรรมศาสตร์"){
+							$deptval = "<option value='ภาควิชาวิศวกรรมไฟฟ้า'>ภาควิชาวิศวกรรมไฟฟ้า</option>"+
+							"<option value='ภาควิชาวิศวกรรมคอมพิวเตอร์'>ภาควิชาวิศวกรรมคอมพิวเตอร์</option>"+
+							"<option value='ภาควิชาวิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม'>ภาควิชาวิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม</option>"+
+							"<option value='ภาควิชาวิศวกรรมระบบควบคุมและเครื่องมือวัด'>ภาควิชาวิศวกรรมระบบควบคุมและเครื่องมือวัด</option>"+
+							"<option value='ภาควิชาวิศวกรรมเครื่องกล'>ภาควิชาวิศวกรรมเครื่องกล</option>"+
+							"<option value='ภาควิชาวิศวกรรมโยธา'>ภาควิชาวิศวกรรมโยธา</option>"+
+							"<option value='ภาควิชาวิศวกรรมสิ่งแวดล้อม'>ภาควิชาวิศวกรรมสิ่งแวดล้อม</option>"+
+							"<option value='ภาควิชาวิศวกรรมอุตสาหการ>ภาควิชาวิศวกรรมอุตสาหการ</option>"+
+							"<option value='ภาควิชาวิศวกรรมเครื่องมือและวัสดุ'>ภาควิชาวิศวกรรมเครื่องมือและวัสดุ</option>"+
+							"<option value='ภาควิชาวิศวกรรมเคมี'>ภาควิชาวิศวกรรมเคมี</option>"+
+							"<option value='ภาควิชาวิศวกรรมอาหาร'>ภาควิชาวิศวกรรมอาหาร</option>"+
+							"<option value='หลักสูตรวิศวกรรมชีวภาพ'>หลักสูตรวิศวกรรมชีวภาพ</option>"+
+							"<option value='หลักสูตรวาริชวิศวกรรม'>หลักสูตรวาริชวิศวกรรม</option>";
+						}
+
+						$("#dept").html($deptval);
+						$("#dept").prop("disabled", false);
+
+
+						$("#faculty").change(function(){
+							$("#facultybox").val($("#faculty").val());
+
+							if($("#faculty").val()=="อื่นๆ"){
+								$("#facultybox").val("");
+								$("#facultybox").css("display","inline");
+								$("#dept").prop("disabled", true);
+							}else{
+								$("#facultybox").css("display","none");
+							}
+
+
+
+							if($("#facultybox").val()=="คณะวิศวกรรมศาสตร์"){
+								$deptval = "<option value='ภาควิชาวิศวกรรมไฟฟ้า'>ภาควิชาวิศวกรรมไฟฟ้า</option>"+
+								"<option value='ภาควิชาวิศวกรรมคอมพิวเตอร์'>ภาควิชาวิศวกรรมคอมพิวเตอร์</option>"+
+								"<option value='ภาควิชาวิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม'>ภาควิชาวิศวกรรมอิเล็กทรอนิกส์และโทรคมนาคม</option>"+
+								"<option value='ภาควิชาวิศวกรรมระบบควบคุมและเครื่องมือวัด'>ภาควิชาวิศวกรรมระบบควบคุมและเครื่องมือวัด</option>"+
+								"<option value='ภาควิชาวิศวกรรมเครื่องกล'>ภาควิชาวิศวกรรมเครื่องกล</option>"+
+								"<option value='ภาควิชาวิศวกรรมโยธา'>ภาควิชาวิศวกรรมโยธา</option>"+
+								"<option value='ภาควิชาวิศวกรรมสิ่งแวดล้อม'>ภาควิชาวิศวกรรมสิ่งแวดล้อม</option>"+
+								"<option value='ภาควิชาวิศวกรรมอุตสาหการ>ภาควิชาวิศวกรรมอุตสาหการ</option>"+
+								"<option value='ภาควิชาวิศวกรรมเครื่องมือและวัสดุ'>ภาควิชาวิศวกรรมเครื่องมือและวัสดุ</option>"+
+								"<option value='ภาควิชาวิศวกรรมเคมี'>ภาควิชาวิศวกรรมเคมี</option>"+
+								"<option value='ภาควิชาวิศวกรรมอาหาร'>ภาควิชาวิศวกรรมอาหาร</option>"+
+								"<option value='หลักสูตรวิศวกรรมชีวภาพ'>หลักสูตรวิศวกรรมชีวภาพ</option>"+
+								"<option value='หลักสูตรวาริชวิศวกรรม'>หลักสูตรวาริชวิศวกรรม</option>";
+								$("#dept").prop("disabled", false);
+								$("#deptbox").css("display","none");
+							}
+							else if($("#facultybox").val()=="คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี"){
+								$deptval = "<option value='ภาควิชาครุศาสตร์โยธา'>ภาควิชาครุศาสตร์โยธา</option>"+
+								"<option value='ภาควิชาครุศาสตร์ไฟฟ้า'>ภาควิชาครุศาสตร์ไฟฟ้า</option>"+
+								"<option value='ภาควิชาครุศาสตร์เครื่องกล'>ภาควิชาครุศาสตร์เครื่องกล</option>"+
+								"<option value='ภาควิชาครุศาสตร์อุตสาหการ'>ภาควิชาครุศาสตร์อุตสาหการ</option>"+
+								"<option value='ภาควิชาเทคโนโลยีและสื่อสารการศึกษา'>ภาควิชาเทคโนโลยีและสื่อสารการศึกษา</option>"+
+								"<option value='สาขาวิชาคอมพิวเตอร์และเทคโนโลยี'>สาขาวิชาคอมพิวเตอร์และเทคโนโลยี</option>"+
+								"<option value='ภาควิชาเทคโนโลยีการพิมพ์และบรรจุภัณฑ์'>ภาควิชาเทคโนโลยีการพิมพ์และบรรจุภัณฑ์</option>"+
+								"<option value='โครงการบริหารร่วมหลักสูตรมีเดียอาตส์และเทคโนโลยีมีเดีย'>โครงการบริหารร่วมหลักสูตรมีเดียอาตส์และเทคโนโลยีมีเดีย</option>";
+								$("#dept").prop("disabled", false);
+								$("#deptbox").css("display","none");
+							}
+							else if($("#facultybox").val()=="คณะพลังงานสิ่งแวดล้อมและวัสด"){
+								$deptval = "<option value='สายวิชาเทคโนโลยีพลังงาน'>สายวิชาเทคโนโลยีพลังงาน</option>"+
+								"<option value='สายวิชาเทคโนโลยีการจัดการพลังงาน'>สายวิชาเทคโนโลยีการจัดการพลังงาน</option>"+
+								"<option value='สายวิชาเทคโนโลยีวัสดุ'>สายวิชาเทคโนโลยีวัสดุ</option>"+
+								"<option value='สายวิชาเทคโนโลยีสิ่งแวดล้อม'>สายวิชาเทคโนโลยีสิ่งแวดล้อม</option>"+
+								"<option value='สายวิชาเทคโนโลยีอุณหภาพ'>สายวิชาเทคโนโลยีอุณหภาพ</option>"+
+								"<option value='กลุ่มวิจัยการผลิตและขึ้นรูปพอลิเมอร์'>กลุ่มวิจัยการผลิตและขึ้นรูปพอลิเมอร์</option>"+
+								"<option value='กลุ่มงานวิจัยเพื่อการอนุรักษ์พลังงาน (EnConLab)์'>กลุ่มงานวิจัยเพื่อการอนุรักษ์พลังงาน (EnConLab)</option>"+
+								"<option value='ศูนย์ดัชนีการอ้างอิงวารสารไทย (TCI)'>ศูนย์ดัชนีการอ้างอิงวารสารไทย (TCI)</option>";
+								$("#dept").prop("disabled", false);
+								$("#deptbox").css("display","none");
+							}
+							else if($("#facultybox").val()=="คณะวิทยาศาสตร์"){
+								$deptval = "<option value='ภาควิชาคณิตศาสตร์'>ภาควิชาคณิตศาสตร์</option>"+
+								"<option value='ภาควิชาเคมี'>ภาควิชาเคมี</option>"+
+								"<option value='ภาควิชาจุลชีววิทยา'>ภาควิชาจุลชีววิทยา</option>"+
+								"<option value='ภาควิชาฟิสิกส์'>ภาควิชาฟิสิกส์</option>"+
+								"<option value='ศูนย์เครื่องมือวิทยาศาสตร์เพื่อมาตรฐานและอุตสาหกรรม'>ศูนย์เครื่องมือวิทยาศาสตร์เพื่อมาตรฐานและอุตสาหกรรม</option>";
+								$("#dept").prop("disabled", false);
+								$("#deptbox").css("display","none");
+							}
+							else if($("#facultybox").val()=="คณะศิลปศาสตร์"){
+								$deptval = "<option value='สำนักงานวิชาศึกษาทั่วไป'>สำนักงานวิชาศึกษาทั่วไป</option>";
+								$("#dept").prop("disabled", false);
+								$("#deptbox").css("display","none");
+							}
+							else if($("#facultybox").val()=="คณะเทคโนโลยีสารสนเทศ"){
+								$deptval = "<option value='สาขาวิชาเทคโนโลยีสารสนเทศ'>สาขาวิชาเทคโนโลยีสารสนเทศ</option>"+
+								"<option value='สาขาวิชาวิทยาการคอมพิวเตอร์'>สาขาวิชาวิทยาการคอมพิวเตอร์</option>";
+								$("#dept").prop("disabled", false);
+								$("#deptbox").css("display","none");
+							}
+							else if($("#facultybox").val()=="คณะทรัพยากรชีวภาพและเทคโนโลยี"){
+								$deptval = "<option value='สายวิชาเทคโนโลยีชีวภาพ์'>สายวิชาเทคโนโลยีชีวภาพ</option>"+
+								"<option value='สายวิชาเทคโนโลยีชีวเคมี'>สายวิชาเทคโนโลยีชีวเคมี</option>"+
+								"<option value='สายวิชาเทคโนโลยีหลังการเก็บเกี่ยว'>สายวิชาเทคโนโลยีหลังการเก็บเกี่ยว</option>"+
+								"<option value='สายวิชาการจัดการทรัพยากรชีวภาพ'>สายวิชาการจัดการทรัพยากรชีวภาพ</option>"+
+								"<option value='หลักสูตรชีวสารสนเทศและชีววิทยาระบบ'>หลักสูตรชีวสารสนเทศและชีววิทยาระบบ</option>"+
+								"<option value='กลุ่มทักษะการจัดการทรัพยากรฐานชุมชน'>กลุ่มทักษะการจัดการทรัพยากรฐานชุมชน</option>";
+								$("#dept").prop("disabled", false);
+								$("#deptbox").css("display","none");
+							}
+							else if($("#facultybox").val()=="คณะสถาปัตยกรรมศาสตร์และการออกแบบ"){
+								$deptval = "<option value='ภาควิชาสถาปัตยกรรมศาสตร์และการออกแบบ'>ภาควิชาสถาปัตยกรรมศาสตร์และการออกแบบ</option>";
+								$("#dept").prop("disabled", false);
+								$("#deptbox").css("display","none");
+							}
+							else if($("#facultybox").val()=="บัณฑิตวิทยาลัยการจัดการและนวัตกรรม"){
+								$deptval = "<option value='ภาควิชาบัณฑิตวิทยาลัยการจัดการและนวัตกรรม'>ภาควิชาบัณฑิตวิทยาลัยการจัดการและนวัตกรรม</option>";
+								$("#dept").prop("disabled", false);
+								$("#deptbox").css("display","none");
+							}
+							else if($("#facultybox").val()=="สถาบันวิทยาการหุ่นยนต์ภาคสนาม (FIBO)"){
+								$deptval = "<option value='สาขาวิชาวิศวกรรมหุ่นยนต์และระบบอัตโนมัติ (ป.ตรี)'>สาขาวิชาวิศวกรรมหุ่นยนต์และระบบอัตโนมัติ (ป.ตรี)</option>"+
+								"<option value='สาขาวิชาวิทยาการหุ่นยนต์และระบบอัตโนมัติ (ป.โท)'>สาขาวิชาวิทยาการหุ่นยนต์และระบบอัตโนมัติ (ป.โท)</option>"+
+								"<option value='สาขาวิชาธุรกิจเทคโนโลยี (ป.โท)'>สาขาวิชาธุรกิจเทคโนโลยี (ป.โท)</option>"+
+								"<option value='สาขาวิชาวิทยาการหุ่นยนต์และระบบอัตโนมัติ (ป.เอก)์'>สาขาวิชาวิทยาการหุ่นยนต์และระบบอัตโนมัติ (ป.เอก)</option>";
+								$("#dept").prop("disabled", false);
+								$("#deptbox").css("display","none");
+							}
+							else if($("#faculty").val()=="อื่นๆ"){
+								$("#deptbox").css("display","inline");
+
+							}
+							
+
+							$("#dept").html($deptval);
+							$("#deptbox").val($("#dept").val());
+							if($("#faculty").val()=="อื่นๆ"){
+								$("#deptbox").css("display","inline");
+								$("#deptbox").val("");
+							}
+							
+						});
+						$("#deptbox").val($("#dept").val());
+
+						$("#dept").change(function(){
+							$("#deptbox").val($("#dept").val());
+						});
+						
+						
+					});
+				</script>
+				<br/>
+				Position: <input type="text" name="position" placeholder="กรอกข้อมูลตำแหน่งงานของท่าน" />
+				
+				<br/>
+				University: <input type="text" name="university" placeholder="กรอกข้อมูลมหาวิทยาลัยของท่าน" />	
+				<br>
+
+				Main content: <textarea name="maincontent">
+
+				</textarea>
+				<br/>
+
+				Hidden content: <textarea name="hiddencontent">
+
+				</textarea>
+				<br/>
+
+				Conclusion content: <textarea name="conclusioncontent">
+
+				</textarea>
+				<br/>
+				
+				template color: <select name="tempID">
+									<?php 
+										foreach ($temp as $val) {
+											echo "<option value='".$val->tempID."'>";
+											echo $val->tempName;
+											echo "</option>";
+										}
+									?>
+								</select>
+				<br>
+
+
+
 				<input type="submit" name="bt" value="upload" />
 	<?php echo form_close();?>
 </body>

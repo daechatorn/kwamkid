@@ -12,26 +12,6 @@ class add extends CI_Controller{
 
 	}
 	public function addquestion(){
-		/*
-			$datainsert = array(
-					'qID' => null,
-					'topic' => "$topic",
-					'imageupload' => "$file_data",
-					'prefix' => "$prefix",
-					'firstname' => "$firstname",
-					'lastname' => "$lastname",
-					'years' => "$years",
-					'department' => "$department",
-					'faculty' => "$faculty",
-					'position' => "$position",
-					'univeristy' => "$univeristy",
-					'maincontent' => "$maincontent",
-					'hiddencontent' => "$hiddencontent",
-					'conclusioncontent' => "$conclusioncontent",
-					'tempID' => 1
-			);
-			
-			$this->db->insert('question', $datainsert);
 		
 
 		$topic = $this->input->post("topic");
@@ -39,7 +19,7 @@ class add extends CI_Controller{
 		$firstname = $this->input->post("firstname");
 		$lastname = $this->input->post("lastname");
 		$years = $this->input->post("years");
-		$department = $this->input->post("department");
+		$department = $this->input->post("dept");
 		$faculty = $this->input->post("faculty");
 		$position = $this->input->post("position");
 		$university = $this->input->post("university");
@@ -47,36 +27,42 @@ class add extends CI_Controller{
 		$hiddencontent = $this->input->post("hiddencontent");
 		$conclusioncontent = $this->input->post("conclusioncontent");
 		$tempID = $this->input->post("tempID");
-*/
-		//$firstname = "testname";
-		//$topic = $this->input->post("topic");
 
 		//upload images
-		$config['upload_path']= './images/';
+		$config['upload_path']= 'images/';
 		$config['allowed_types'] = "jpg|gif|png";
 		$config['max_size'] = 100000;
-		$config['max_height'] = 2000;
-		$config['max_width'] = 2000;
+		$config['file_name'] = $firstname.$lastname;
 
-		$this->load->library("upload", $config);
+		$this->load->library("upload");
 		$this->upload->initialize($config);
 
+		$imagepath = "";		
+
 		if($this->upload->do_upload("picture")){ //ถ้าไม่มีปัญหา
+
+					$config['image_library'] = 'gd2';
+                    $config['source_image'] = $this->upload->upload_path.$this->upload->file_name;
+                    
+                    $config['maintain_ratio'] = FALSE;
+                    $config['width'] = 1300;
+                    $config['height'] = 1300;
+                    $this->load->library('image_lib',$config); 
+                    $this->image_lib->resize();
+
+
 			$data = $this->upload->data();
-			print_r($data);
+			
+			$imagepath = $data['full_path'];
 
 		}
 		else{
 			print_r("Cann't upload".$this->upload->display_errors()."<br>".$config['upload_path']);
 		}
 
-/*
-		$file_data = $this->upload->data();
-		$imagepath = $file_data['full_path'];
-*/
 
 
-		//$this->db->query("INSERT INTO question VALUES (null, '$topic', '$imagepath', 'prefix', '$firstname', 'lastname', 'years', 'department', 'faculty', 'position', 'university', 'maincontent', 'hiddencontent', 'conclusioncontent', 2);");
+		$this->db->query("INSERT INTO question VALUES (null, '$topic', '$imagepath', '$prefix', '$firstname', '$lastname', '$years', '$department', '$faculty', '$position', '$university', '$maincontent', '$hiddencontent', '$conclusioncontent', 2);");
 		
 
 		
