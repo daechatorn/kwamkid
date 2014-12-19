@@ -11,5 +11,7 @@ class contentcomment extends CI_Controller{
 
 	}
 
+	
+
 }
 ?>
