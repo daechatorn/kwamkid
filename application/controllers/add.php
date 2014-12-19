@@ -5,10 +5,13 @@ class add extends CI_Controller{
 		$this->load->helper(array('form', 'url'));
 	}
 	public function index(){
-		/*temp color*/
-		$data['temp'] = $this->db->get("template")->result();
 
-		$this->load->view("add/addquestionview",$data);
+		$data['tempval'] = $this->db->select("*")->from("template")->get()->result_array();
+
+
+		$this->load->view("dash/headernavbar");
+
+		$this->load->view("dash/add/addquestionview",$data);
 
 	}
 	public function addquestion(){

@@ -7,7 +7,7 @@ class dashboard extends CI_Controller{
 	public function index(){
 
 		$this->load->view("dash/headernavbar");
-		$this->load->view("dash/menu");
+		
 		$this->load->view("dash/overview/overview");
 	}
 
