@@ -45,7 +45,7 @@
 
 									});
 									$(".read").mouseout(function(){
-										$(".read").css("background","<?php foreach($temp as $tempval){echo $tempval->boxColor;};?>"); /*boxColor*/
+										$(".read").css("background","<?php foreach ($contentvalue as $key) {echo $key->boxColor;} ?>"); /*boxColor*/
 										$(".read").css("border-color","white");
 										$(".read").css("color","white");
 									});
@@ -59,34 +59,33 @@
 	
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12" id="boxbackgroundcontent" style="background:url('<?=base_url()?>assests/images/pongsakorn.jpg') no-repeat ;width:100%;">
+			<div class="col-md-12" id="boxbackgroundcontent" style="background:url('<?=base_url()?>images/<?php foreach ($contentvalue as $key) {echo $key->imageupload;} ?>') no-repeat ;width:100%;">
 
 
-				<div class="col-md-offset-7 col-md-5" id="boxcontent" style="background:<?php foreach($temp as $tempval){echo $tempval->boxColor;};?>"> <!--boxColor-->
+				<div class="col-md-offset-7 col-md-5" id="boxcontent" style="background:<?php foreach ($contentvalue as $key) {echo $key->boxColor;} ?>"> <!--boxColor-->
 					<div class="boxheader">
-						<h3>อะไรคืออุปสรรคสำคัญต่อคุณภาพการเรียนการสอนด้านวิทยาศาสตร์และเทคโนโลยี และเราจะปฏิรูปได้อย่างไร</h3> <!--topic-->
+						<h3><?php foreach ($contentvalue as $key) {echo $key->topic;} ?></h3> <!--topic-->
 						<div class="headercontent">
 							<span id="content1">
-								<b>นายพงศกร จงชีวีวัฒน์ นักศึกษาชั้นปีที่ 4 
-								ภาควิชาวิศวกรรมเคมี คณะวิศวกรรมศาสตร์ 
-								เลขานุการองค์การนักศึกษา 
-								มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
+								<b>
+									<?php foreach ($contentvalue as $key) {
+										echo $key->prefix;
+										echo $key->firstname."&nbsp";
+										echo $key->lastname."&nbsp";
+										echo $key->years."&nbsp";
+										echo $key->department."&nbsp";
+										echo $key->faculty."&nbsp";
+										echo $key->position."&nbsp";
+										echo $key->position."&nbsp";
+									} ?>
 								</b>  <!--prefix, firstname, lastname, years, department, faculty, position, university-->
-							มองว่าปัญหาและอุปสรรคที่เป็นปัญหาต่อคุณภาพการเรียนการสอนด้านวิทยา
-ศาสตร์และเทคโนโลยี แบ่งเป็น 4 ระดับ คือ 1) ระดับตัวเอง 
-จะมองในมุมของคุณภาพการเรียนรู้ 2) ระดับผู้สอน 
-คุณภาพการถ่ายทอดของอาจารย์ 3) ระดับครอบครัว สังคม 
-ในมุมมองของค่านิยมต่างๆ ที่มีในสังคมที่เน้นเรื่องของการแข่งขัน เช่น 
-การแข่งขันทางวิชาการ การแข่งขันสอบเข้าเรียนในสถาบันที่มีคุณภาพ 4) 
-ระดับประเทศ เกี่ยวกับหลักสูตรการเรียนการสอน</span> <!--พาทเเรก: maincontent-->
+								<?php foreach ($contentvalue as $key) {echo $key->maincontent;} ?>
+							</span> <!--พาทเเรก: maincontent-->
 							<br>
-							<span id="content2">ใน 4 ระดับนี้ ผมเห็นว่าสิ่งสำคัญคือ ระดับ 3 เกี่ยวกับค่านิยม 
-
-ที่ผมอยากจะใช้เวทีนี้สะท้อนว่าวิทยาศาสตร์และเทคโนโลยี ไม่ได้มุ่งเน้นแต่ทฤษฎีหรือวิชาการ แต่วิทยาศาสตร์ คือ การเรียน การทดลอง และเทคโนโลยีก็คือการนำเอาวิทยาศาสตร์ หรือวิชาการแขนงอื่นๆ มาประยุกต์ใช้ให้เกิดการพัฒนามากยิ่งขึ้น หากค่านิยมในสังคมไทยเกิดการปรับเปลี่ยน 
-ก็จะทำให้นักเรียน นักศึกษาเริ่มมองเห็นเป้าหมายในการเรียนรู้ของตัวเองที่ชัดเจนมากยิ่งขึ้นส่งผลให้การถ่ายทอดความรู้ของอาจารย์ก็จะได้มองไปในแนวทางเป้าหมายเดียวกันกับนักเรียน นักศึกษา การเรียนการสอนจะมีมุมมอง มีการปฏิบัติ มีการนำทฤษฎีมาปรับประยุกต์ใช้ได้มากขึ้น สุดท้ายก็จะส่งผลให้คุณภาพของการเรียนการสอนในภาพรวมของประเทศดียิ่งขึ้นด้วย</span>
+							<span id="content2"><?php foreach ($contentvalue as $key) {echo $key->hiddencontent;} ?></span>
 							<!--พาทสองซ่อน: hiddencontent-->
 							<br>
-							<button class="btn btn-danger read" style="background:<?php foreach($temp as $tempval){echo $tempval->boxColor;};?>">Read More</button> <!--boxColor-->
+							<button class="btn btn-danger read" style="background:<?php foreach ($contentvalue as $key) {echo $key->boxColor;} ?>">Read More</button> <!--boxColor-->
 
 							
 						</div> <!--เกริ่นนำเนื้อหา-->
@@ -95,9 +94,9 @@
 					
 					<div class="boxarticle">
 						<div class="articlecontent">
-							<span id="test">การพัฒนาการปฏิรูปคุณภาพการเรียนการสอนด้านวิทยาศาสตร์และเทคโนโลยี  
-ไม่ใช่เรื่องที่ใครคนใดคนหนึ่งต้องทำ  แต่ทุกคนต้องทำเพราะตัวเราเองมีส่วนที่จะทำให้การปฏิรูปของประเทศ ในด้านการเรียนรู้คุณภาพการเรียนสอนในด้านวิทยาศาสตร์และเทคโนโลยีเจริญเติบโตไปข้างหน้าได้
-</span>
+							<span id="test">
+								<?php foreach ($contentvalue as $key) {echo $key->conclusioncontent;} ?>
+							</span>
 						</div>
 					</div> <!--ส่วนเด่น: conclusioncontent-->
 
@@ -124,7 +123,8 @@
 						
 						<div class="kwamkidbox">
 							<form><!--boxColor-->
-								<textarea disabled style="border-color:<?php foreach($temp as $tempval){echo $tempval->boxColor;};?>">
+								<input type="hidden" name="qID" value="<?php foreach ($contentvalue as $key) {echo $key->qID;} ?>">
+								<textarea disabled style="border-color:<?php foreach ($contentvalue as $key) {echo $key->boxColor;} ?>">
 
 								</textarea>
 								<input type="submit" value="send" class="btn btn-success">

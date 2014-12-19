@@ -53,7 +53,7 @@ class add extends CI_Controller{
 
 			$data = $this->upload->data();
 			
-			$imagepath = $data['full_path'];
+			$imagepath = $data['file_name'];
 
 		}
 		else{
