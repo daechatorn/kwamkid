@@ -23,6 +23,43 @@ class editquestion extends CI_Controller{
 		echo json_encode($result);
 	}
 
+	public function edit(){
+		$qID = $this->input->post("qID");
+		$topic = $this->input->post("topic");
+		$prefix = $this->input->post("prefix");
+		$firstname = $this->input->post("firstname");
+		$lastname = $this->input->post("lastname");
+		$years = $this->input->post("years");
+		$department = $this->input->post("dept");
+		$faculty = $this->input->post("faculty");
+		$position = $this->input->post("position");
+		$university = $this->input->post("university");
+		$maincontent = $this->input->post("maincontent");
+		$hiddencontent = $this->input->post("hiddencontent");
+		$conclusioncontent = $this->input->post("conclusioncontent");
+		$videopath = $this->input->post("videopath");
+		$tempID = $this->input->post("tempID");
+
+		$data = array(
+               'topic' => $topic,
+               'prefix' => $prefix,
+               'firstname' => $firstname,
+               'lastname' => $lastname,
+               'years' => $years,
+               'department' => $department,
+               'faculty' => $faculty,
+               'position' => $position,
+               'university' => $university,
+               'maincontent' => $maincontent,
+               'hiddencontent' => $hiddencontent,
+               'conclusioncontent' => $conclusioncontent,
+               'videopath' => $videopath,
+               'tempID' => $tempID,
+            );
+		$this->db->where('qID', $qID);
+		$this->db->update('question', $data); 
+
+	}
 
 
 }

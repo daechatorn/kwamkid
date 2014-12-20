@@ -45,7 +45,7 @@
 		  </div><!-- /.col-lg-6 -->
 
 
-		<?php echo form_open_multipart("add/addquestion");?>
+		<?php echo form_open_multipart("editquestion/edit");?>
           <!--Content data-->
           <div class="col-sm-12" style="border:solid;border-color:black">
           	<div class="col-sm-2">
@@ -319,7 +319,7 @@
           		
           	</div>
           	<div class="col-sm-6" style="margin-bottom:2%">
-
+          		<input type="hidden" name="qID" class="qID" />
           		template color: <select name="tempID" class="tempID" style="width:100%;">
 									<?php 
 										foreach ($tempval as $val) {

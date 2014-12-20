@@ -79,7 +79,7 @@ function getEditQuestion($qID){
 				$(".maincontent").val(result[0]['maincontent']);
 				$(".hiddencontent").val(result[0]['hiddencontent']);
 				$(".conclusioncontent").val(result[0]['conclusioncontent']);
-
+				$(".qID").val(result[0]['qID']);
 
 
 
