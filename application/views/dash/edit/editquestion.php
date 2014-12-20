@@ -115,7 +115,7 @@
           	</div>
 
           							<script>
-										$(document).ready(function(){
+										$(document).ready(function(){ //อย่าลืมเปลี่ยนใน changedeptVal() ด้วย ถ้าไม่ทำ เวลาค้นหา dept จะไม่เปลี่ยน
 											$("#facultybox").val($("#faculty").val());
 
 											$deptval = "";
@@ -134,6 +134,7 @@
 												"<option value='หลักสูตรวิศวกรรมชีวภาพ'>หลักสูตรวิศวกรรมชีวภาพ</option>"+
 												"<option value='หลักสูตรวาริชวิศวกรรม'>หลักสูตรวาริชวิศวกรรม</option>";
 											}
+
 
 											$("#dept").html($deptval);
 											$("#dept").prop("disabled", false);
@@ -313,7 +314,7 @@
           	</div>
 
           	<div class="col-sm-6">
-          		Video path: <input type="text" name="videopath" class="videopath" style="width:100%;" placeholder="กรอกลิ้งค์วิดีโอบนยูทูปของท่าน"/>
+          		Video path: <input type="text" name="videopath" id="videopath" style="width:100%;" placeholder="กรอกลิ้งค์วิดีโอบนยูทูปของท่าน"/>
           		
           		
           	</div>
