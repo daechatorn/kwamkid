@@ -307,10 +307,10 @@
           <!--Other data-->
           <div class="col-sm-12" style="border:solid;border-color:black;margin-top:2.5%;">
           	<div class="col-sm-6">
-          		Profile of interviewer: <input type="file" class="profile" name="profile" size="20" style="width:100%;"/> 
+          		Profile of interviewer: <input type="file" class="profile" name="profile"  size="20" style="width:100%;"/> 
           	</div>
           	<div class="col-sm-6">
-          		Background of page: <input type="file" name="picture" size="20" style="width:100%;"/>
+          		Background of page: <input type="file" name="picture" size="20"  style="width:100%;"/>
           	</div>
 
           	<div class="col-sm-6">

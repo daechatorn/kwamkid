@@ -63,7 +63,7 @@ class add extends CI_Controller{
 			print_r("Cann't background upload".$this->upload->display_errors()."<br>".$config['upload_path']);
 		}
 
-		//upload background
+		//upload profile
 		$config2['upload_path']= 'images/profile/';
 		$config2['allowed_types'] = "jpg|gif|png";
 		$config2['max_size'] = 100000;
@@ -75,12 +75,12 @@ class add extends CI_Controller{
 		$profilepath = "";		
 		if($this->upload->do_upload("profile")){ //ถ้าไม่มีปัญหา
 
-					$config['image_library'] = 'gd2';
-                    $config['source_image'] = $this->upload->upload_path.$this->upload->file_name;
+					$config2['image_library'] = 'gd2';
+                    $config2['source_image'] = $this->upload->upload_path.$this->upload->file_name;
                     
-                    $config['maintain_ratio'] = FALSE;
-                    $config['width'] = 400;
-                    $config['height'] = 400;
+                    $config2['maintain_ratio'] = FALSE;
+                    $config2['width'] = 400;
+                    $config2['height'] = 400;
                     $this->load->library('image_lib',$config2); 
                     $this->image_lib->resize();
 
