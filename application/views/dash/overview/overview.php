@@ -27,158 +27,130 @@
         <!--content-->
         <div class="col-sm-9 " style="margin-top:30px;">
           <h1 class="page-header">Dashboard</h1>
+          
 
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+          <div class="row placeholders" style="margin-left:1px;margin-right:1px;">
+            <div class="col-sm-12" style="border:solid;border-color:black;padding:0;"> 
+              <div class="col-sm-8"  style="padding:4px;" > 
+                <div class="col-sm-4" style="padding:4px;">
+                  <h4 style="margin:0;padding:0;" class="sub-header">Comment Detail</h4>
+                </div>
+                <div class="col-sm-2" style="padding:4px;">
+                  <button type="button" class="btn btn-danger" onClick="deldata();" style="width:100%;" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                  </button>
+
+                </div>
+              </div>
+              <div class="col-sm-2" style="padding:4px;">
+                <button class="btn btn-success" style="width:100%;">Export</button>
+              </div>
+              <div class="col-sm-2" style="padding:4px;">
+                <button class="btn btn-primary" style="width:100%;">Filter</button>
+              </div>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+
+            <div class="col-sm-12" id="boxmanual" style="border:solid;border-color:black;padding:1px;" hidden>
+              <div class="col-sm-1 "  style="padding:0.5px 0 0.5px 0;" > 
+                <h5 style="margin:7px;">Topic: </h5> 
+              </div>
+              <div class="col-sm-11 "  style="padding:0.5px 0 0.5px 0;" > 
+                <select class="form-control">
+                  <option>ท่านพร้อมหรือไม่พร้อมกับการไปทํางานในประเทศกลุ่ม AEC การเคลื่อนย้ายแรงงาน และมีข้อเสนอแนะอย่างไร</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
+              </div>
+
+              <div class="col-sm-1" style="padding:0px 0 0.5px 0;">
+                <h5 style="margin:7px;">Date From: </h5> 
+              </div>
+              <div class="col-sm-4" style="padding:0.5px 0 0.5px 0;">
+                <input type="date" class="form-control" style="width:100%;"/>
+              </div>
+              <div class="col-sm-1" style="padding:0.5px 0 0.5px 0;">
+                <h5 style="margin:7px;">Date To: </h5> 
+              </div>
+              <div class="col-sm-4" style="padding:0.5px 0 0.5px 0;">
+               <input type="date" class="form-control" style="width:100%;"/>
+              </div>
+              <div class="col-sm-1" style="padding:0.5px 0 0.5px 0;">
+                <input type="submit" class="form-control btn btn-info" style="margin-left:2px;" value="submit" style="width:100%;"/>
+              </div>
             </div>
           </div>
 
-          <h2 class="sub-header">Section title</h2>
+
+
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>Comment</th>
+                  <th>Question</th>
+                  <th>Respondents</th>
+                  <th>Date</th>
+                  <th>Time</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
+                <?php
+                  if(count($comment)==0){
+                    echo "<tr>";
+                      echo "<td colspan='6' align='center'>"."---- no data ----"."</td>";
+                    echo "</tr>";
+                  }
+                  else{
+                    foreach ($comment as $key => $value) {
+                      echo "<tr class='rowcontent'>";
+                        echo "<td>";
+                        echo "<input type='checkbox' name='checkdelete' id='".$value['cID']."' value='".$value['cID']."' />";
+                        echo "</td>";
+
+                        echo "<td>";
+                        echo $value['detail'];
+                        echo "</td>";
+
+                        echo "<td>";
+                        echo $value['topic'];
+                        echo "</td>";
+
+                        echo "<td>";
+                        echo $value['firstname']." ".$value['lastname'];
+                        echo "</td>";
+
+                        echo "<td>";
+                        echo $value['date'];
+                        echo "</td>";
+
+                        echo "<td>";
+                        echo $value['time'];
+                        echo "</td>";
+                      echo "</tr>";
+                    }
+
+                  }
+                ?>
               </tbody>                                                                      
             </table>
           </div>
+
+          <script type="text/javascript">
+            $(document).ready(function(){
+                  $(".rowcontent").mouseover(function(){
+                    $(this).css("background","rgba(253,52,249,0.3)");
+                  });
+                  $(".rowcontent").mouseout(function(){
+                    $(this).css("background","white");
+                  });
+            });
+          </script>
+
+
+          <?=$this->pagination->create_links();?>
+
+
         </div>
       </div>
     </div>

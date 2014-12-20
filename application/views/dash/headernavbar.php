@@ -14,7 +14,8 @@
 
     <script src="<?=base_url();?>assests/bootstrap/js/bootstrap.min.js"></script>   
 
-    <script src="<?=base_url();?>assests/jscode/searchquestion.js"></script>    
+    <script src="<?=base_url();?>assests/jscode/searchquestion.js"></script>   
+    <script src="<?=base_url();?>assests/jscode/countcheckbox.js"></script>    
   </head>
 
   <body>
