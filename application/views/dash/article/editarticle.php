@@ -7,10 +7,10 @@
             <li ><a href="#">Overview</a></li>
             <li ><a href="#">เพิ่มคำถาม</a></li>
             <li><a href="#">แก้ไขคำถาม</a></li>
-            <li style="background:rgba(255,155,202,0.5)"><a href="#">เพิ่มบทความ</a></li>
+            <li ><a href="#">เพิ่มบทความ</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="#">แก้ไขบทความ</a></li>
+            <li style="background:rgba(255,155,202,0.5)"><a href="#">แก้ไขบทความ</a></li>
             <li><a href="#">แก้ไขหน้าแรก</a></li>
             <li><a href="">แก้ไขจำนวนคำถามเด่น</a></li>
           </ul>
@@ -27,7 +27,7 @@
        <?php echo form_open_multipart("addarticle/add");?>
         <!--content-->
         <div class="col-sm-9 " style="margin-top:30px;">
-          <h1 class="page-header">Add article</h1>
+          <h1 class="page-header">Edit article</h1>
 
           
           <!--Content data-->
@@ -39,7 +39,7 @@
 	          		Writer: 
 	          	</div>
 	          	<div class="col-sm-5" >
-	          		<input type="text" name="writer" style="width:100%;"/> 
+	          		<input type="text" id="writer" name="writer" style="width:100%;"/> 
 	          	</div>
 
 
@@ -60,7 +60,7 @@
 	          		Short Topic:
 	          	</div>
 	          	<div class="col-sm-4">
-	          		<textarea name="shorttopic" style="resize: none;width:100%;">
+	          		<textarea name="shorttopic" id="shorttopic" style="resize: none;width:100%;">
 
 					</textarea>
 	          	</div>
@@ -71,7 +71,7 @@
 	          		Full Topic:
 	          	</div>
 	          	<div class="col-sm-6">
-	          		<textarea name="fulltopic" style="resize: none;width:100%;">
+	          		<textarea name="fulltopic" id="fulltopic" style="resize: none;width:100%;">
 
 					</textarea>
 	          	</div>
@@ -95,7 +95,7 @@
 	          		graph1:
 	          	</div>
 	          	<div class="col-sm-6">
-	          		<textarea name="paragraph1" style="resize: none;width:100%;">
+	          		<textarea name="paragraph1" id="para1" style="resize: none;width:100%;">
 
 					</textarea>
 	          	</div>
@@ -118,7 +118,7 @@
 	          		graph2:
 	          	</div>
 	          	<div class="col-sm-6">
-	          		<textarea name="paragraph2" style="resize: none;width:100%;">
+	          		<textarea name="paragraph2" id="para2" style="resize: none;width:100%;">
 
 					</textarea>
 	          	</div>
@@ -141,7 +141,7 @@
 	          		graph3:
 	          	</div>
 	          	<div class="col-sm-6">
-	          		<textarea name="paragraph3" style="resize: none;width:100%;">
+	          		<textarea name="paragraph3" id="para3" style="resize: none;width:100%;">
 
 					</textarea>
 	          	</div>
@@ -153,7 +153,7 @@
 
           
           <div class="col-sm-offset-8 col-sm-4" style="margin-top:1.5%;margin-bottom:2.5%;padding:0;">
-          		<input type="submit" value="add" class="btn btn-success" style="width:100%;"/>
+          		<input type="submit" value="save" class="btn btn-success" style="width:100%;"/>
           </div>
 
 
