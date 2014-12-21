@@ -152,13 +152,7 @@
 
           </div>
 
-          <script type="text/javascript">
-            $(document).ready(function(){
-              alert("<?php echo $this->session->userdata('topicsession');?>");
-              alert("<?php echo $this->session->userdata('dfromsession');?>");
-              alert("<?php echo $this->session->userdata('dtosession');?>");
-            });
-          </script>
+          
 
 
           <div class="table-responsive">
