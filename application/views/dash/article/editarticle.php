@@ -20,16 +20,33 @@
           </ul>
         </div>
 
-    
+		
 
 
 
-       <?php echo form_open_multipart("addarticle/add");?>
+
+
+       
         <!--content-->
         <div class="col-sm-9 " style="margin-top:30px;">
           <h1 class="page-header">Edit article</h1>
 
-          
+          <div class="col-lg-12" style="margin:0% 0% 2% 0%;padding:0%;">
+		    <div class="input-group">
+		      <input type="text" class="form-control" id="searcharticlebox" name="searchtopic" placeholder="ค้นหาด้วย Short Topic">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" disabled type="button"><span class="glyphicon glyphicon-search"></span></button>
+		      </span>
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->
+
+		  <div class="col-lg-12" style="margin:0% 0% 2% 0%;padding:0%;">
+		  	<table class="table table-hover" id="searcharticletable">
+			 	
+			</table>
+		  </div><!-- /.col-lg-6 -->
+
+		  <?php echo form_open_multipart("editarticle/edit");?>
           <!--Content data-->
           <div class="col-sm-12" style="border:solid;border-color:black;padding:0%;">
           	
@@ -150,7 +167,7 @@
 
 
 
-
+          <input type="hidden" name="aID" id="aID" />
           
           <div class="col-sm-offset-8 col-sm-4" style="margin-top:1.5%;margin-bottom:2.5%;padding:0;">
           		<input type="submit" value="save" class="btn btn-success" style="width:100%;"/>
