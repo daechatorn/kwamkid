@@ -50,7 +50,8 @@ class dashboard extends CI_Controller{
 
 		$data['comment'] = $this->db->select('*')->from('question')->join('comment','question.qID = comment.qID')->limit($config['per_page'],end($this->uri->segments))->get()->result_array();
 		
-	
+		
+		$data['topic'] = $this->db->query("SELECT * FROM question ORDER By topic asc;")->result_array();
 
 
 		$this->load->view("dash/overview/overview",$data);
@@ -65,6 +66,52 @@ class dashboard extends CI_Controller{
 		}
 
 		echo json_encode("Finished");
+	}
+
+	public function export(){
+		//$this->load->view("export/pdfview");
+		$this->load->database();
+
+
+			$qID = $this->input->post("qID");
+			$datefrom = $this->input->post("datefrom");
+			$dateto = $this->input->post("dateto");
+			$datecheck = "notchoose";
+			$query = "";
+			if($dateto != "" && $datefrom != ""){$datecheck="choose";}
+
+
+			if($datecheck == "choose" && $qID == "notchoose"){
+				$query = $this->db->query("SELECT detail, topic, c.firstname || ' ' || c.lastname as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID WHERE date >= '$datefrom' && date <= '$dateto'");
+			}
+			else if($datecheck == "notchoose" && $qID != "notchoose"){
+				$query = $this->db->query("SELECT detail, topic, c.firstname || ' ' || c.lastname as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID WHERE c.qID = $qID");
+			}
+			else if($datecheck == "choose" && $qID != "notchoose"){
+				$query = $this->db->query("SELECT detail, topic, c.firstname || ' ' || c.lastname as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID WHERE (date >= '$datefrom' && date <= '$dateto') and (c.qID = $qID)");
+			}
+			else{
+				$query = $this->db->query("SELECT detail, topic, c.firstname || ' ' || c.lastname as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID");
+			}
+
+            
+
+
+            $this->load->helper('csv');
+
+            
+            
+            echo query_to_csv($query, TRUE, 'Report.csv');
+
+
+            if($this->session->userdata('FailExport') == ""){
+            	$this->session->set_userdata(array("FailExport"=>"Data Export not founded"));
+            }
+            
+			exit();
+
+			
+
 	}
 
 }

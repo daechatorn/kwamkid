@@ -43,41 +43,113 @@
                 </div>
               </div>
               <div class="col-sm-2" style="padding:4px;">
-                <button class="btn btn-success" style="width:100%;">Export</button>
+                <button class="btn btn-success exportbutton"  style="width:100%;">Export</button>
               </div>
               <div class="col-sm-2" style="padding:4px;">
-                <button class="btn btn-primary" style="width:100%;">Filter</button>
+                <button class="btn btn-primary filterbutton"  style="width:100%;">Filter</button>
               </div>
             </div>
+            <script type="text/javascript">
+              $(document).ready(function(){
+                $("#exportbox").hide();
+                $("#filterbox").hide();
+                
+                $count = 1;
+                $(".exportbutton").click(function(){
+                  if($count == 1){
+                    $("#exportbox").show();
+                    $count = 0;
+                  }
+                  else{
+                    $("#exportbox").hide();
+                    $count = 1;
+                  }
+                });
 
-            <div class="col-sm-12" id="boxmanual" style="border:solid;border-color:black;padding:1px;" hidden>
-              <div class="col-sm-1 "  style="padding:0.5px 0 0.5px 0;" > 
-                <h5 style="margin:7px;">Topic: </h5> 
-              </div>
-              <div class="col-sm-11 "  style="padding:0.5px 0 0.5px 0;" > 
-                <select class="form-control">
-                  <option>ท่านพร้อมหรือไม่พร้อมกับการไปทํางานในประเทศกลุ่ม AEC การเคลื่อนย้ายแรงงาน และมีข้อเสนอแนะอย่างไร</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
-              </div>
+                $countfil =1;
+                $(".filterbutton").click(function(){
+                  if($countfil == 1){
+                    $("#filterbox").show();
+                    $countfil = 0;
+                  }
+                  else{
+                    $("#filterbox").hide();
+                    $countfil = 1;
+                  }
+                });
 
-              <div class="col-sm-1" style="padding:0px 0 0.5px 0;">
-                <h5 style="margin:7px;">Date From: </h5> 
+              });
+            </script>
+
+            <?php echo form_open("dashboard/export");?>
+              <div class="col-sm-12" id="exportbox" style="border:solid;border-color:black;padding:1px;" >
+                <div class="col-sm-1 "  style="padding:0.5px 0 0.5px 0;" > 
+                  <h5 style="margin:7px;">Topic: </h5> 
+                </div>
+                <div class="col-sm-11 "  style="padding:0.5px 0 0.5px 0;" > 
+                  <select name="qID" class="form-control">
+                    <option value="notchoose">Not Choose</option>
+                    <?php 
+                      foreach ($topic as $key => $value) {
+                        echo "<option value='".$value['qID']."'>"."- ".$value['topic']."</option>";
+                      }
+                    ?>
+                  </select>
+                </div>
+
+                <div class="col-sm-1" style="padding:0px 0 0.5px 0;">
+                  <h5 style="margin:7px;">Date From: </h5> 
+                </div>
+                <div class="col-sm-4" style="padding:0.5px 0 0.5px 0;">
+                  <input type="date" name="datefrom" value="notchoose" class="form-control" style="width:100%;"/>
+                </div>
+                <div class="col-sm-1" style="padding:0.5px 0 0.5px 0;">
+                  <h5 style="margin:7px;">Date To: </h5> 
+                </div>
+                <div class="col-sm-4" style="padding:0.5px 0 0.5px 0;">
+                 <input type="date" name="dateto" value="notchoose" class="form-control" style="width:100%;"/>
+                </div>
+                <div class="col-sm-1" style="padding:0.5px 0 0.5px 0;">
+                  <input type="submit" class="form-control btn btn-info" style="margin-left:2px;" value="export" style="width:100%;"/>
+                </div>
               </div>
-              <div class="col-sm-4" style="padding:0.5px 0 0.5px 0;">
-                <input type="date" class="form-control" style="width:100%;"/>
+            <?php echo form_close();?>
+
+            <?php echo form_open("dashboard/filter");?>
+              <div class="col-sm-12" id="filterbox" style="border:solid;border-color:black;padding:1px;" >
+                <div class="col-sm-1 "  style="padding:0.5px 0 0.5px 0;" > 
+                  <h5 style="margin:7px;">Topic: </h5> 
+                </div>
+                <div class="col-sm-11 "  style="padding:0.5px 0 0.5px 0;" > 
+                  <select name="qID" class="form-control">
+                    <option value="notchoose">Not Choose</option>
+                    <?php 
+                      foreach ($topic as $key => $value) {
+                        echo "<option value='".$value['qID']."'>"."- ".$value['topic']."</option>";
+                      }
+                    ?>
+                  </select>
+                </div>
+
+                <div class="col-sm-1" style="padding:0px 0 0.5px 0;">
+                  <h5 style="margin:7px;">Date From: </h5> 
+                </div>
+                <div class="col-sm-4" style="padding:0.5px 0 0.5px 0;">
+                  <input type="date" name="datefrom" value="notchoose" class="form-control" style="width:100%;"/>
+                </div>
+                <div class="col-sm-1" style="padding:0.5px 0 0.5px 0;">
+                  <h5 style="margin:7px;">Date To: </h5> 
+                </div>
+                <div class="col-sm-4" style="padding:0.5px 0 0.5px 0;">
+                 <input type="date" name="dateto" value="notchoose" class="form-control" style="width:100%;"/>
+                </div>
+                <div class="col-sm-1" style="padding:0.5px 0 0.5px 0;">
+                  <input type="submit" class="form-control btn btn-info" style="margin-left:2px;" value="filter" style="width:100%;"/>
+                </div>
               </div>
-              <div class="col-sm-1" style="padding:0.5px 0 0.5px 0;">
-                <h5 style="margin:7px;">Date To: </h5> 
-              </div>
-              <div class="col-sm-4" style="padding:0.5px 0 0.5px 0;">
-               <input type="date" class="form-control" style="width:100%;"/>
-              </div>
-              <div class="col-sm-1" style="padding:0.5px 0 0.5px 0;">
-                <input type="submit" class="form-control btn btn-info" style="margin-left:2px;" value="submit" style="width:100%;"/>
-              </div>
-            </div>
+            <?php echo form_close();?>
+
+
           </div>
 
 
