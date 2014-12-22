@@ -86,16 +86,16 @@ class dashboard extends CI_Controller{
 
 
 			if($datecheck == "choose" && $qID == "notchoose"){
-				$query = $this->db->query("SELECT detail, topic, c.firstname || ' ' || c.lastname as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID WHERE date >= '$datefrom' && date <= '$dateto'");
+				$query = $this->db->query("SELECT detail, topic, CONCAT(c.firstname,' ',c.lastname) as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID WHERE date >= '$datefrom' && date <= '$dateto'");
 			}
 			else if($datecheck == "notchoose" && $qID != "notchoose"){
-				$query = $this->db->query("SELECT detail, topic, c.firstname || ' ' || c.lastname as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID WHERE c.qID = $qID");
+				$query = $this->db->query("SELECT detail, topic, CONCAT(c.firstname,' ',c.lastname) as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID WHERE c.qID = $qID");
 			}
 			else if($datecheck == "choose" && $qID != "notchoose"){
-				$query = $this->db->query("SELECT detail, topic, c.firstname || ' ' || c.lastname as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID WHERE (date >= '$datefrom' && date <= '$dateto') and (c.qID = $qID)");
+				$query = $this->db->query("SELECT detail, topic, CONCAT(c.firstname,' ',c.lastname) as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID WHERE (date >= '$datefrom' && date <= '$dateto') and (c.qID = $qID)");
 			}
 			else{
-				$query = $this->db->query("SELECT detail, topic, c.firstname || ' ' || c.lastname as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID");
+				$query = $this->db->query("SELECT detail, topic, CONCAT(c.firstname,' ',c.lastname) as respondents, date, time   FROM comment c INNER JOIN question q ON c.qID = q.qID");
 			}
 
             
