@@ -42,8 +42,8 @@
             <li><a href="#">Help</a></li>
           </ul>
         -->
-          <form class="navbar-form navbar-right">
-            <span style="color:white">Hello, Admin</span>&nbsp;&nbsp;
+          <form class="navbar-form navbar-right" action="control/logout">
+            <span style="color:white">Hello, <?=$this->session->userdata("login_id");?></span>&nbsp;&nbsp;
             <button class="btn btn btn-success">Logout</button>
           </form>
         </div>
