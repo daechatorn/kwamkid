@@ -12,11 +12,6 @@
           <ul class="nav nav-sidebar">
             <li><a href="#">แก้ไขบทความ</a></li>
             <li><a href="#">แก้ไขหน้าแรก</a></li>
-            <li><a href="">แก้ไขจำนวนคำถามเด่น</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">#</a></li>
-            <li><a href="">#</a></li>
           </ul>
         </div>
 
